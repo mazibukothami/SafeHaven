@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> SafeHaven - Help when you feel unsafe</title>
+        <meta name="description" content="SafeHaven helps you alert trusted people and find emergency help in South Africa.">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <a class="skip" href="#main">Skip to main content</a>
+        <header class="topbar">
+            <span class="brand">SafeHaven</span>
+            <div class="tools" role="group" arial-label="Display settings">
+                <button id="textDown" type="button" arial-label="Decrease text size">A-</button>
+                <button id="textUp" type="button" arial-label="Increase text size">A+</button>
+                <button id="contrast" type="button" arial-pressed="false">High contrast</button>
+                <button id="quickExit" type="button" class="exit">Quick exit</button>
+            </div>
+        </header>
+
+        <main id="main">
+            <section class="hero" arial-labelledby="hero-title">
+                <h1 id="hero-title">You are not alone.</h1>
+                <p>If you feel unsafe or followed, press the button below. You can call emergency services and send your location to people you trust.</p>
+                <button id="helpBtn" type="button" class="help">I need help now</button>
+                <p class="hint">Tip: press<kbd>Esc</kbd>twice to leave this page quickly.</p>
+            </section>
+            <section aria-labelledby="contacts-title" class="card">
+                <h2 id="contacts-title">Your trusted contacts</h2>
+                <p> Add people who should get your location if you need help. They are saved only on this device.</p>
+                <form id="contactForm">
+                    <label for="cName">Name</label>
+                    <input id="cName" type="text" autocomplete="off" required>
+                    <label for="cPhone">Phone number</label>
+                    <input id="cPhone" type="tel" inputmode="tel" placeholder="e.g. xxxxxxxxxx" autocomplete="off" required>
+                    <button type="submit">Add contact</button>
+                </form>
+                <ul id="contactList" aria-live="polite"></ul>
+            </section>
+
+            <section aria-labelledby="res-title" class="card">
+                <h2 id="res-title">Emergency numbers</h2>
+                <ul class="numbers">
+                    <li><a href="tel:112">Emergency from a cellphone: <strong>112</strong></a></li>
+                    <li><a href="tell:1011">Police (SAPS) <strong>10111</strong></a></li>
+                    <li><a href="tel:0800428428">GBV Command Center (free, 24/7): <strong>0800 428 428</strong></a></li>
+                    <li><a href="tel:0800150150">Stop Gender Violence helpline (free): <strong>0800 150 150</strong></a></li>
+                </ul>
+            </section>
+        </main>
+        
+        <dialog  id="helpDialog" aria-labelledby="dlg-title">
+            <h2 id="dlg-title">Get help now</h2>
+            <a class="btn" href="tel:112">Call 112</a>
+            <a class="btn" href="tel:10111">Call Police (10111)</a>
+            <button id="sendLoc" type="button" class="btn">Send my location to trusted contacts</button>
+            <p id="status" role="status" aria-live="polite"></p>
+            <button id="closeDlg" type="button" class="secondary">Close</button>
+        </dialog>
+        <script src="script.js"></script>
+    </body>
+</html>

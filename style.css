@@ -1,0 +1,145 @@
+:root{
+    --bg: #ffffff;
+    --card: #f3f5f9;
+    --text: #1a1a2e;
+    --primary:#00595e;
+    --on-primary:#ffffff;
+    --danger:#7a0f3a;
+    --on-danger: #ffffff;
+    --border:#5b6478;
+    --size:100%;
+}
+@media (prefers-color-scheme: dark){
+    :root:not([data-contrast="high"]){
+        --bg:#0e1320;
+        --card:#1a2133;
+        --text:#f2f4f8;
+        --primary:#5cd6d6;
+        --on-primary:#0e1320;
+        --danger:#ffb3c7;
+        --on-danger:#2a0716;
+        --border:#9aa5bd;
+    }
+}
+:root[data-contrast="high"]{
+    --bg:#000000;
+    --card:#000000;
+    --text:#ffffff;
+    --primary:#ffff00;
+    --on-primary:#000000;
+    --danger:#ffffff;
+    --on-danger:#000000;
+    --border:#ffffff;
+}
+* {box-sizing: border-box;}
+html{font-size: var(--size);}
+body{
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height:1.6;
+    background: var(--bg);
+    color: var(--text);
+}
+:focus-visible {
+    outline: 4px solid var(--focus);
+    outline-offset: 3px;
+}
+.skip{
+    position: absolute;
+    left: -999px;
+    background: var(--primary);
+    color: var(--on-primary);
+    padding: 0.75rem 1rem;
+}
+
+.skip:focus {left:0; top:0; z-index: 10;}
+.topbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-bottom: 2px solid var(--border);
+}
+.brand { font-size: 1.4rem; font-weight: 700;}
+.tools {display: flex; flex-wrap: wrap; gap: 0.5rem;}
+button, .btn, input{
+    font: inherit;
+    min-height: 44px;
+    border-radius: 8px;
+}
+button, .btn{
+    padding: 0.6rem 1rem;
+    border: 2px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+button[aria-pressed="true"] {background: var(--primary); color: var(--on-primary);}
+.exit {background: var(--danger); color: var(--on-danger); border-color: var(--danger); font-weight:700;}
+main {max-width: 44rem; margin:0 auto; padding: 1rem;}
+.hero {text-align: center; padding:2rem 0;}
+.hero h1{font-size: 2.2rem; margin: 0 0 0.5rem;}
+
+.help{
+    width: 100%;
+    max-width: 24rem;
+    min-height:72px;
+    font-size:1.5rem;
+    font-weight:700;
+    background: var(--danger);
+    color: var(--on-danger);
+    border-color: var(--danger);
+    margin:1rem 0;
+}
+.hint{font-size: 0.95rem;}
+.card{
+    background: var(--card);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0;
+}
+label { display: block; font-weight: 600; margin-top: 0.75rem; }
+input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 2px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+}
+form button { margin-top: 1rem; background: var(--primary); color: var(--on-primary); border-color: var(--primary); font-weight: 700; }
+
+ul { padding-left: 1.25rem; }
+#contactList { list-style: none; padding: 0; }
+#contactList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.numbers { list-style: none; padding: 0; }
+.numbers a { display: block; padding: 0.75rem 0; color: var(--text); font-size: 1.1rem; text-decoration: underline; }
+
+dialog {
+  width: min(92vw, 28rem);
+  border: 3px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg);
+  color: var(--text);
+  padding: 1.25rem;
+}
+dialog::backdrop { background: rgba(0, 0, 0, 0.75); }
+dialog .btn { display: block; width: 100%; margin: 0.75rem 0; font-weight: 700; background: var(--primary); color: var(--on-primary); border-color: var(--primary); }
+.secondary { width: 100%; margin-top: 0.5rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
